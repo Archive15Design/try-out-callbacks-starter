@@ -29,8 +29,11 @@ console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
-let chainMap = function() {
-
+let chainMap = function(value, ...callbacks) {
+    for (cb of callbacks){
+        value = cb(value);
+    }
+    return value;
 };
 
 

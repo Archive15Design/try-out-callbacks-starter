@@ -34,8 +34,16 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   optional initial accumulator
 *******************************************************************************/
 
-let mySimpleReduce = function() {
+let mySimpleReduce = function(array, cb) {
+    let accumulator = array[0];
 
+    for (i = 1; i < array.length; i++){
+        let currentEle = array[i];
+        let result = cb(accumulator, currentEle);
+        accumulator = result;
+    }
+
+    return accumulator;
 };
 
 
